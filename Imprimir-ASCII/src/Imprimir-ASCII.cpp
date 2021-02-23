@@ -10,13 +10,37 @@
 
 using namespace std;
 
+class ASCIITableIterator{
+public:
+
+	int getNextValue (){
+		return currentValue++;
+	}
+
+	bool hasNextValue(){
+		if ((currentValue+1) > maximumValue)
+			return false;
+		else
+			return true;
+	}
+
+private:
+	const int maximumValue = 256;
+	const int initialValue = 0;
+	int currentValue = initialValue;
+
+
+};
+
 int main() {
 
-	int i;
+	ASCIITableIterator ASCIITableIteratorObject;
+	int value;
 
-	for (i=0; i<256; i++)
-		printf("%d - %c\n", i, i);
+	while (ASCIITableIteratorObject.hasNextValue()){
+		value = ASCIITableIteratorObject.getNextValue();
+		printf("%d - %c\n", value, value);
+	}
 
 	return 0;
-	system("Pause");
 }
