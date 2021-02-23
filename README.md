@@ -1,5 +1,5 @@
 # Estruturas de dados 1
-Repository for Data Strctures classes in Feevale. 
+Repository for Data Structures classes in Feevale. 
 
 ## Exercises: 
 
