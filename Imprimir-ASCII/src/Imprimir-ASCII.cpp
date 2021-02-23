@@ -10,27 +10,54 @@
 
 using namespace std;
 
-class ASCIITableIterator{
-public:
+class IntIterator{
 
-	int getNextValue (){
-		return currentValue++;
-	}
+	public:
 
-	bool hasNextValue(){
-		if ((currentValue+1) > maximumValue)
-			return false;
-		else
-			return true;
-	}
+		int getNextValue(){
+			return this->currentValue++;
+		}
 
-private:
-	const int maximumValue = 256;
-	const int initialValue = 0;
-	int currentValue = initialValue;
+		bool hasNextValue(){
+			if ((currentValue+1) > maximumValue)
+				return false;
+			else
+				return true;
+		}
+
+	protected:
+		virtual void configureIterator(){}
+
+		void setMaximumValue(int maximumValue){
+			this->maximumValue = maximumValue;
+		}
+
+		void setInitialValue(int initialValue){
+			this->currentValue = initialValue;
+		}
+
+	private:
+		int maximumValue;
+		int currentValue;
 
 
 };
+
+
+class ASCIITableIterator: public IntIterator {
+	public:
+		ASCIITableIterator(){
+			configureIterator();
+		}
+
+	protected:
+		void configureIterator(){
+			setMaximumValue(256);
+			setInitialValue(0);
+		}
+
+};
+
 
 int main() {
 
