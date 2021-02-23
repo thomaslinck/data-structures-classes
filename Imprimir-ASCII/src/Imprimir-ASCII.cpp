@@ -12,9 +12,11 @@ using namespace std;
 
 int main() {
 
-	string helloWorld = "Hello World";
+	int i;
 
-	cout << helloWorld << endl; // prints !!!Hello World!!!
+	for (i=0; i<256; i++)
+		printf("%d - %c\n", i, i);
 
 	return 0;
+	system("Pause");
 }
