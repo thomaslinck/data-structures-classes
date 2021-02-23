@@ -58,16 +58,31 @@ class ASCIITableIterator: public IntIterator {
 
 };
 
+class Application{
+	public:
+		Application(IntIterator iterator){
+			this->iterator = iterator;
+		}
+
+		void execute(){
+			int value;
+
+			while (iterator.hasNextValue()){
+				value = iterator.getNextValue();
+				printf("%d - %c\n", value, value);
+			}
+		}
+
+	private:
+		IntIterator iterator;
+};
 
 int main() {
 
 	ASCIITableIterator ASCIITableIteratorObject;
-	int value;
+	Application application(ASCIITableIteratorObject);
 
-	while (ASCIITableIteratorObject.hasNextValue()){
-		value = ASCIITableIteratorObject.getNextValue();
-		printf("%d - %c\n", value, value);
-	}
+	application.execute();
 
 	return 0;
 }
