@@ -7,12 +7,9 @@
 //============================================================================
 
 #include <iostream>
-using namespace std;
+#include <ListElement.cpp>
 
-class ListElementInformation{ // @suppress("Class has a virtual method and non-virtual destructor")
-	public:
-		virtual void doNothing(){}
-};
+using namespace std;
 
 
 class TouristAttractionInformation: public ListElementInformation{ // @suppress("Class has a virtual method and non-virtual destructor")
@@ -25,34 +22,6 @@ class TouristAttractionInformation: public ListElementInformation{ // @suppress(
 };
 
 
-class ListManager{
-
-	public:
-		void createNewList(){
-			listHeader = NULL;
-		}
-
-		void addNewElementInTheBegginingOfList(ListElementInformation listElementInformation){
-			ListElementPointer newListMember = (ListElementPointer) malloc(sizeof(TouristAttractionInformation));
-
-			newListMember->listElementInformation = listElementInformation;
-			newListMember->nextListElement = listHeader;
-
-			listHeader = newListMember;
-		}
-
-	private:
-
-		typedef struct ListElement{
-			ListElementInformation listElementInformation;
-			ListElement * nextListElement;
-		}ListElement;
-
-		typedef ListElement * ListElementPointer;
-
-		ListElementPointer listHeader;
-
-};
 
 class TouristAttractionApplication{
 	public:
