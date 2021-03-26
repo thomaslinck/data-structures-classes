@@ -31,10 +31,6 @@ class TouristAttractionsListManager{
 			return NULL;
 		}
 
-		void setHeaderToExistingList(TouristAttractionListElementPointer existingListHeader){
-			listHeader = existingListHeader;
-		}
-
 		void addNewAttractionInBegginingOfList(TouristAttractionInformation touristAttractionInformation){
 			TouristAttractionListElementPointer newListMember = (TouristAttractionListElementPointer) malloc(sizeof(TouristAttractionInformation));
 
