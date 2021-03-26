@@ -9,33 +9,43 @@
 #include <iostream>
 using namespace std;
 
-struct TouristAttractionModel{
+typedef struct TouristAttractionInformation{
 	string description;
 	float latitude;
 	float longitude;
-	struct TouristAttractionModel * nextTouristAttraction;
-};
 
-typedef struct TouristAttractionModel TouristAttraction;
-typedef TouristAttraction * TouristAttractionPointer;
+}TouristAttractionInformation;
+
+typedef struct TouristAttractionListElement{
+	TouristAttractionInformation touristAttractionInformation;
+	struct TouristAttractionListElement * nextTouristAttractionListElement;
+}TouristAttractionListElement;
+
+typedef TouristAttractionListElement * TouristAttractionListElementPointer;
+
 
 class TouristAttractionsListManager{
 
 	public:
-		TouristAttractionPointer createNewList(){
+	TouristAttractionListElementPointer createNewList(){
 			return NULL;
 		}
 
-		void setHeaderToExistingList(TouristAttractionPointer existingListHeader){
+		void setHeaderToExistingList(TouristAttractionListElementPointer existingListHeader){
 			listHeader = existingListHeader;
 		}
 
-		void addNewTouristAttraction(TouristAttraction touristAttraction){
+		void addNewAttractionInBegginingOfList(TouristAttractionInformation touristAttractionInformation){
+			TouristAttractionListElementPointer newListMember = (TouristAttractionListElementPointer) malloc(sizeof(TouristAttractionInformation));
 
+			newListMember->touristAttractionInformation = touristAttractionInformation;
+			newListMember->nextTouristAttractionListElement = listHeader;
+
+			listHeader = newListMember;
 		}
 
 	private:
-		TouristAttractionPointer listHeader;
+		TouristAttractionListElementPointer listHeader;
 
 };
 
@@ -49,15 +59,15 @@ class Application{
 		void execute(){
 			while (defineListOperation() == '1'){
 				touristAttractionsListManager.
-					addNewTouristAttraction(
+					addNewAttractionInBegginingOfList(
 						readTouristAttraction());
 			}
 		}
 
 	private:
 
-		TouristAttraction readTouristAttraction(){
-					TouristAttraction touristAttraction;
+		TouristAttractionInformation readTouristAttraction(){
+			TouristAttractionInformation touristAttraction;
 
 					cout << "Digite a descrição do ponto turístico" << endl;
 					cin >> touristAttraction.description;
