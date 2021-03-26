@@ -9,53 +9,62 @@
 #include <iostream>
 using namespace std;
 
-typedef struct TouristAttractionInformation{
-	string description;
-	float latitude;
-	float longitude;
-
-}TouristAttractionInformation;
-
-typedef struct TouristAttractionListElement{
-	TouristAttractionInformation touristAttractionInformation;
-	struct TouristAttractionListElement * nextTouristAttractionListElement;
-}TouristAttractionListElement;
-
-typedef TouristAttractionListElement * TouristAttractionListElementPointer;
+class ListElementInformation{ // @suppress("Class has a virtual method and non-virtual destructor")
+	public:
+		virtual void doNothing(){}
+};
 
 
-class TouristAttractionsListManager{
+class TouristAttractionInformation: public ListElementInformation{ // @suppress("Class has a virtual method and non-virtual destructor")
+	public:
+		void doNothing(){}
+
+	    string description;
+		float latitude;
+		float longitude;
+};
+
+
+class ListManager{
 
 	public:
-	TouristAttractionListElementPointer createNewList(){
-			return NULL;
+		void createNewList(){
+			listHeader = NULL;
 		}
 
-		void addNewAttractionInBegginingOfList(TouristAttractionInformation touristAttractionInformation){
-			TouristAttractionListElementPointer newListMember = (TouristAttractionListElementPointer) malloc(sizeof(TouristAttractionInformation));
+		void addNewElementInTheBegginingOfList(ListElementInformation listElementInformation){
+			ListElementPointer newListMember = (ListElementPointer) malloc(sizeof(TouristAttractionInformation));
 
-			newListMember->touristAttractionInformation = touristAttractionInformation;
-			newListMember->nextTouristAttractionListElement = listHeader;
+			newListMember->listElementInformation = listElementInformation;
+			newListMember->nextListElement = listHeader;
 
 			listHeader = newListMember;
 		}
 
 	private:
-		TouristAttractionListElementPointer listHeader;
+
+		typedef struct ListElement{
+			ListElementInformation listElementInformation;
+			ListElement * nextListElement;
+		}ListElement;
+
+		typedef ListElement * ListElementPointer;
+
+		ListElementPointer listHeader;
 
 };
 
-class Application{
+class TouristAttractionApplication{
 	public:
 
-		Application(){
-			touristAttractionsListManager.createNewList();
+	TouristAttractionApplication(){
+		listManager.createNewList();
 		}
 
 		void execute(){
 			while (defineListOperation() == '1'){
-				touristAttractionsListManager.
-					addNewAttractionInBegginingOfList(
+				listManager.
+					addNewElementInTheBegginingOfList(
 						readTouristAttraction());
 			}
 		}
@@ -65,17 +74,17 @@ class Application{
 		TouristAttractionInformation readTouristAttraction(){
 			TouristAttractionInformation touristAttraction;
 
-					cout << "Digite a descrição do ponto turístico" << endl;
-					cin >> touristAttraction.description;
+			cout << "Digite a descrição do ponto turístico" << endl;
+			cin >> touristAttraction.description;
 
-					cout << "Digite a latitude do ponto turístico" << endl;
-					cin >> touristAttraction.latitude;
+			cout << "Digite a latitude do ponto turístico" << endl;
+			cin >> touristAttraction.latitude;
 
-					cout << "Digite a longitude do ponto turístico" << endl;
-					cin >> touristAttraction.longitude;
+			cout << "Digite a longitude do ponto turístico" << endl;
+			cin >> touristAttraction.longitude;
 
-					return touristAttraction;
-				}
+			return touristAttraction;
+		}
 
 		char defineListOperation(){
 			char operation;
@@ -89,13 +98,13 @@ class Application{
 			return operation;
 		}
 
-		TouristAttractionsListManager touristAttractionsListManager;
+		ListManager listManager;
 };
 
 
 int main() {
 
-	Application application;
+	TouristAttractionApplication application;
 
 	cout << "!!!Hello World!!!" << endl; // prints !!!Hello World!!!
 
