@@ -1,7 +1,11 @@
+
+using namespace std;
+
 class ListElementInformation{ // @suppress("Class has a virtual method and non-virtual destructor")
 	public:
 		virtual void doNothing(){}
 };
+
 
 class ListManager{
 
