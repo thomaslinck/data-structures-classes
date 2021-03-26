@@ -7,6 +7,13 @@ class ListElementInformation{ // @suppress("Class has a virtual method and non-v
 };
 
 
+class ListIterator{ // @suppress("Class has a virtual method and non-virtual destructor")
+	public:
+		virtual bool hasNextElement(){return false;};
+		virtual ListElementInformation getNextElement(){return NULL;};
+
+};
+
 class ListManager{
 
 	public:
@@ -15,7 +22,7 @@ class ListManager{
 		}
 
 		void addNewElementInTheBegginingOfList(ListElementInformation listElementInformation){
-			ListElementPointer newListMember = (ListElementPointer) malloc(sizeof(TouristAttractionInformation));
+			ListElementPointer newListMember = (ListElementPointer) malloc(sizeof(listElementInformation)+sizeof(listHeader));
 
 			newListMember->listElementInformation = listElementInformation;
 			newListMember->nextListElement = listHeader;
