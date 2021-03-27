@@ -7,7 +7,6 @@
 //============================================================================
 
 #include <iostream>
-
 using namespace std;
 
 class IntIterator{ // @suppress("Class has a virtual method and non-virtual destructor")
