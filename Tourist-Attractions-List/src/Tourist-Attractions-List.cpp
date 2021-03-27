@@ -1,5 +1,5 @@
 //============================================================================
-// Name        : TouristAttractionList.cpp
+// Name        : Tourist-Attractions-List.cpp
 // Author      : Thomas
 // Version     :
 // Copyright   : Your copyright notice
@@ -109,3 +109,7 @@ int main() {
 
 	return 0;
 }
+<<<<<<< HEAD:TouristAttractionList/src/TouristAttractionList.cpp
+=======
+
+>>>>>>> parent of 743372e... create project for tourist attraction:Tourist-Attractions-List/src/Tourist-Attractions-List.cpp
