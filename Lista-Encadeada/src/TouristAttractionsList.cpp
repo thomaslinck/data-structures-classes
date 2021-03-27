@@ -83,8 +83,18 @@ class TouristAttractionApplication{
 			cout << "Fim da lista" <<endl;
 		}
 
-		void printAttractionElement(ListElementInformation touristAttraction){
+		void printAttractionElement(ListElementInformation listElementInformation){
 
+			ListElementInformation * ptrListElementInformation;
+			ptrListElementInformation = &listElementInformation;
+
+			cout << "Test" << endl;
+			TouristAttractionInformation * touristAttractionInformation = dynamic_cast<TouristAttractionInformation *>(ptrListElementInformation);
+
+			cout << "Test" << endl;
+			cout << touristAttractionInformation->description << " - " << touristAttractionInformation->latitude << " - " << touristAttractionInformation->longitude << endl;
+
+			cout << "Test" << endl;
 		}
 
 		ListManager listManager;

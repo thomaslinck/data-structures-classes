@@ -57,7 +57,7 @@ class ListManager{
 				}
 
 				bool hasNextElement(){
-					return true;
+					return false;
 				};
 
 				ListElementInformation getNextElement(){
@@ -66,8 +66,7 @@ class ListManager{
 				};
 
 				ListElementInformation getFirstElement(){
-					ListElementInformation listElementInformation;
-					return listElementInformation;
+					return firstElement->listElementInformation;
 				};
 
 			private:
