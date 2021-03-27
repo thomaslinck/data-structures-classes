@@ -1,5 +1,5 @@
 //============================================================================
-// Name        : Tourist-Attractions-List.cpp
+// Name        : TouristAttractionList.cpp
 // Author      : Thomas
 // Version     :
 // Copyright   : Your copyright notice
@@ -175,4 +175,5 @@ int main() {
 
 	return 0;
 }
+
 
