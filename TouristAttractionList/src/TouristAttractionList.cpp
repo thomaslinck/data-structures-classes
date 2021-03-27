@@ -8,75 +8,9 @@
 
 #include <iostream>
 #include <string.h>
+#include "TouristAttractionListManager.cpp"
+
 using namespace std;
-
-typedef struct TouristAttractionInformation{
-	string description;
-	float latitude;
-	float longitude;
-
-}TouristAttractionInformation;
-
-typedef struct TouristAttractionListElement{
-	TouristAttractionInformation touristAttractionInformation;
-	struct TouristAttractionListElement * nextTouristAttractionListElement;
-}TouristAttractionListElement;
-
-typedef TouristAttractionListElement * TouristAttractionListElementPointer;
-
-
-class TouristAttractionsListManager{
-
-public:
-	TouristAttractionListElementPointer createNewList(){
-		return NULL;
-	}
-
-	void setHeaderToExistingList(TouristAttractionListElementPointer existingListHeader){
-		listHeader = existingListHeader;
-	}
-
-	void addNewAttractionInBegginingOfList(TouristAttractionInformation touristAttractionInformation){
-		TouristAttractionListElementPointer newListMember = (TouristAttractionListElementPointer) malloc(sizeof(TouristAttractionInformation));
-
-		newListMember->touristAttractionInformation = touristAttractionInformation;
-		newListMember->nextTouristAttractionListElement = listHeader;
-
-		listHeader = newListMember;
-	}
-
-	bool positionInNextElementIfExists(){
-		if(currentElement->nextTouristAttractionListElement != NULL){
-			currentElement = currentElement->nextTouristAttractionListElement;
-			return true;
-		}
-		else return false;
-	}
-
-	TouristAttractionListElementPointer getCurrentElement(){
-		return currentElement;
-	}
-
-	void resetCurrentElement(){
-		currentElement = listHeader;
-	}
-
-	TouristAttractionListElementPointer getElementWhere(string description){
-		resetCurrentElement();
-		do {
-			if(strcmp(currentElement->touristAttractionInformation.description.c_str(), description.c_str()) == 0)
-				return currentElement;
-		}
-		while(positionInNextElementIfExists());
-
-		throw "Atração não cadastrada";
-	};
-
-private:
-	TouristAttractionListElementPointer listHeader;
-	TouristAttractionListElementPointer currentElement;
-
-};
 
 class Application{
 public:
@@ -175,5 +109,3 @@ int main() {
 
 	return 0;
 }
-
-
