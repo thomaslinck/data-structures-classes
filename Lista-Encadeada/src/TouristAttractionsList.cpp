@@ -20,13 +20,25 @@ class TouristAttractionApplication{
 
 	TouristAttractionApplication(){
 		listManager.createNewList();
-		}
+		definedListOperation = '1';
+	}
 
 		void execute(){
-			while (defineListOperation() == '1'){
-				listManager.
-					addNewElementInTheBegginingOfList(
-						readTouristAttraction());
+
+			while (defineListOperation() != '1'){
+
+				switch(definedListOperation){
+					case '2':
+						listManager.
+							addNewElementInTheBegginingOfList(
+								readTouristAttraction());
+						break;
+
+					case '3':
+						printAttractionsList();
+
+				}
+
 			}
 		}
 
@@ -48,18 +60,35 @@ class TouristAttractionApplication{
 		}
 
 		char defineListOperation(){
-			char operation;
-
 			cout << "As operações disponíveis para a lista são: "<< endl;
-			cout << "1 - Adicionar" << endl;
-			cout << "2 - Sair" << endl;
+			cout << "1 - Sair" << endl;
+			cout << "2 - Adicionar" << endl;
+			cout << "3 - ImprimirAtrações" << endl;
 
-			cin >> operation;
+			cin >> definedListOperation;
 
-			return operation;
+			return definedListOperation;
+		}
+
+		void printAttractionsList(){
+			ListIterator listIterator = listManager.getNewListIterator();
+			cout << "A lista de atrações é:" << endl;
+
+			printAttractionElement(listIterator.getFirstElement());
+
+			while(listIterator.hasNextElement()){
+
+			}
+
+			cout << "Fim da lista" <<endl;
+		}
+
+		void printAttractionElement(ListElementInformation touristAttraction){
+
 		}
 
 		ListManager listManager;
+		char definedListOperation;
 };
 
 

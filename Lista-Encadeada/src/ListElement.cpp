@@ -13,6 +13,7 @@ class ListIterator{ // @suppress("Class has a virtual method and non-virtual des
 	public:
 		virtual bool hasNextElement(){} // @suppress("No return")
 		virtual ListElementInformation getNextElement(){} // @suppress("No return")
+		virtual ListElementInformation getFirstElement(){} // @suppress("No return")
 };
 
 class ListManager{
@@ -60,6 +61,11 @@ class ListManager{
 				};
 
 				ListElementInformation getNextElement(){
+					ListElementInformation listElementInformation;
+					return listElementInformation;
+				};
+
+				ListElementInformation getFirstElement(){
 					ListElementInformation listElementInformation;
 					return listElementInformation;
 				};
