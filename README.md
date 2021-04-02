@@ -13,5 +13,5 @@ The ideia is just to practice some initial C++ object oriented concepts.
 ## Exercise 2 - [Tourist Attraction Linked Lists](/Tourist-Attractions-List)
 Exercise to create a linked list of touristic attractions. It also has function to manipulate the list, such as adding, deleting and searching. This is made with OO concepts. 
 
-## Exercise 2 - [Generic Linked Lists](/Tourist-Attractions-List)
+## Exercise 2 - [Generic Linked Lists](/generic-linked-list)
 Exercise to create a linked list of a generic node with only one value. It also has function to manipulate the list, such as adding, deleting and searching. This is purely made in C, without any OO. 
