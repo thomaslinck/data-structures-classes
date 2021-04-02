@@ -7,10 +7,9 @@
 //============================================================================
 
 #include <iostream>
-
 using namespace std;
 
-class IntIterator{
+class IntIterator{ // @suppress("Class has a virtual method and non-virtual destructor")
 
 	public:
 
@@ -44,7 +43,7 @@ class IntIterator{
 };
 
 
-class ASCIITableIterator: public IntIterator {
+class ASCIITableIterator: public IntIterator { // @suppress("Class has a virtual method and non-virtual destructor")
 	public:
 		ASCIITableIterator(){
 			configureIterator();

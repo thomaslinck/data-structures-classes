@@ -8,8 +8,6 @@
 
 #include <iostream>
 #include <string.h>
-#include "TouristAttractionListManager.cpp"
-
 using namespace std;
 
 typedef struct TouristAttractionInformation{
@@ -78,7 +76,6 @@ private:
 	TouristAttractionListElementPointer currentElement;
 
 };
-
 
 class Application{
 public:
@@ -177,7 +174,3 @@ int main() {
 
 	return 0;
 }
-<<<<<<< HEAD:TouristAttractionList/src/TouristAttractionList.cpp
-=======
-
->>>>>>> parent of 743372e... create project for tourist attraction:Tourist-Attractions-List/src/Tourist-Attractions-List.cpp
