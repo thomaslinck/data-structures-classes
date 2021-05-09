@@ -1,5 +1,5 @@
 from abstract_queue_manager import *
-from sequential_queue_functions import *
+from sequential_queue import *
 
 
 class queue_manager_factory:

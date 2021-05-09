@@ -5,6 +5,10 @@ from abc import ABC, abstractmethod
 class abstract_queue_manager(ABC):
 
     @abstractmethod
+    def for_each(self, function):
+        pass
+
+    @abstractmethod
     def is_queue_empty(self, queue):
         pass
 
@@ -24,6 +28,32 @@ class abstract_queue_manager(ABC):
     def remove_first_element_from_queue(self, queue):
         pass
 
-    @abstractmethod
-    def create_queue(self):
-        pass
+
+# class abstract_queue_iterator(ABC):
+
+#     def __init__(self, queue):
+#         self.queue = queue
+
+#     @abstractmethod
+#     def get_current_element(self):
+#         pass
+
+#     @abstractmethod
+#     def get_previous_element(self):
+#         pass
+
+#     @abstractmethod
+#     def get_next_element(self):
+#         pass
+
+#     @abstractmethod
+#     def has_next_element(self):
+#         pass
+
+#     @abstractmethod
+#     def go_to_last_element(self):
+#         pass
+
+#     @abstractmethod
+#     def go_to_next_element(self):
+#         pass

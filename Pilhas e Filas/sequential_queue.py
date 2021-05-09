@@ -3,11 +3,12 @@ from abstract_queue_manager import *
 
 class sequential_queue_manager(abstract_queue_manager):
 
-    def create_queue(self):
+    def __init__(self):
         self.queue = []
 
-    def get_queue(self):
-        return self.queue
+    def for_each(self, function):
+        for e in self.queue:
+            function(e)
 
     def is_queue_empty(self):
         return not self.queue

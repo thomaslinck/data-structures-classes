@@ -26,8 +26,7 @@ def adicionar_aviao_na_fila(queue_manager):
 
 
 def listar_dados_avioes_na_fila(queue_manager):
-    for aviao in queue_manager.get_queue():
-        print_airplane(aviao)
+    queue_manager.for_each(print_airplane)
 
 
 def execute_program():
@@ -40,11 +39,14 @@ def execute_program():
         "5": listar_dados_avioes_na_fila
     }
 
-    queue_manager = queue_manager_factory().make("sequential")
-    queue_manager.create_queue()
+    try:
+        queue_manager = queue_manager_factory().make("sequential")
+    except:
+        print("Não foi possível criar")
+        return
 
-    # queue_manager.add_element_to_queue(Airplane("ABC", "Teste1", "TAM"))
-    # queue_manager.add_element_to_queue(Airplane("DEF", "Teste2", "GOL"))
+    queue_manager.add_element_to_queue(Airplane("ABC", "Teste1", "TAM"))
+    queue_manager.add_element_to_queue(Airplane("DEF", "Teste2", "GOL"))
 
     while True:
         print("\nDigite o número da operação desejada:")
