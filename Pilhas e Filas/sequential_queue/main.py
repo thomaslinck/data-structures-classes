@@ -1,6 +1,6 @@
 
 from airplane_definition import *
-from sequential_queue_functions import *
+from queue_functions import *
 
 
 def verifica_se_pista_esta_vazia(pista_de_decolagem):
