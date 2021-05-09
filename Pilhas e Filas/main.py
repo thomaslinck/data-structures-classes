@@ -39,8 +39,14 @@ def execute_program():
         "5": listar_dados_avioes_na_fila
     }
 
+    lists = {
+        "1": "linked",
+        "2": "sequential"
+    }
+
     try:
-        queue_manager = queue_manager_factory().make("sequential")
+        print("Digite 1 para uma lista encadeada e 2 para uma lista sequencial")
+        queue_manager = queue_manager_factory().make(lists.get(input()))
     except:
         print("Não foi possível criar")
         return

@@ -23,5 +23,5 @@ class sequential_queue_manager(abstract_queue_manager):
         return self.queue[0] if not self.is_queue_empty() else "none"
 
     def remove_first_element_from_queue(self):
-        def by_first_element(element): return self.queue.index(element) != 0
-        self.queue = list(filter(by_first_element, self.queue))
+        def out_first_element(element): return self.queue.index(element) != 0
+        self.queue = list(filter(out_first_element, self.queue))
