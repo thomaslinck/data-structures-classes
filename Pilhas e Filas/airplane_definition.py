@@ -6,7 +6,7 @@ class Airplane:
 
 
 def print_airplane(airplane):
-    print((airplane.prefixo, "-", airplane.nome, "-", airplane.companhia)
+    print(f"{airplane.prefixo} - {airplane.nome} - {airplane.companhia}"
           if isinstance(airplane, Airplane) else "not an airplane")
 
 
