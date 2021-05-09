@@ -10,7 +10,7 @@ def print_airplane(airplane):
           if isinstance(airplane, Airplane) else "not an airplane")
 
 
-def create_new_airplane():
+def create_airplane():
     print("Digite o prefixo")
     prefixo = input()
 

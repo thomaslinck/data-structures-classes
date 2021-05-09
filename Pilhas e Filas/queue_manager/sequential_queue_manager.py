@@ -1,4 +1,4 @@
-from abstract_queue_manager import *
+from abstract_queue_manager import abstract_queue_manager
 
 
 class sequential_queue_manager(abstract_queue_manager):
@@ -10,18 +10,22 @@ class sequential_queue_manager(abstract_queue_manager):
         for e in self.queue:
             function(e)
 
-    def is_queue_empty(self):
+    def is_empty(self):
         return not self.queue
 
-    def number_of_elements_in(self):
+    def number_of_elements(self):
         return len(self.queue)
 
-    def add_element_to_queue(self, element):
+    def add_element(self, element):
         self.queue.append(element)
 
-    def get_first_element_from_queue(self):
-        return self.queue[0] if not self.is_queue_empty() else "none"
+    def retrieve_first_element(self):
+        if self.is_empty():
+            return
+        first_element = self.queue[0]
+        self.__remove_first_element()
+        return first_element
 
-    def remove_first_element_from_queue(self):
+    def __remove_first_element(self):
         def out_first_element(element): return self.queue.index(element) != 0
         self.queue = list(filter(out_first_element, self.queue))

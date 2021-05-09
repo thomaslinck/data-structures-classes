@@ -1,6 +1,6 @@
-from abstract_queue_manager import *
-from sequential_queue import *
-from linked_queue import *
+from abstract_queue_manager import abstract_queue_manager
+from sequential_queue_manager import sequential_queue_manager
+from linked_queue_manager import linked_queue_manager
 
 
 class queue_manager_factory:
