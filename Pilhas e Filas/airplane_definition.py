@@ -6,9 +6,18 @@ class Airplane:
 
 
 def print_airplane(airplane):
-    if (isinstance(airplane, Airplane)):
-        print(airplane.prefixo)
-        print(airplane.nome)
-        print(airplane.companhia)
-    else:
-        print("not an airplane")
+    print((airplane.prefixo, "-", airplane.nome, "-", airplane.companhia)
+          if isinstance(airplane, Airplane) else "not an airplane")
+
+
+def create_new_airplane():
+    print("Digite o prefixo")
+    prefixo = input()
+
+    print("Digite o nome")
+    nome = input()
+
+    print("Digite a companhia")
+    companhia = input()
+
+    return Airplane(prefixo, nome, companhia)
