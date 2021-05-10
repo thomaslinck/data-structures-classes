@@ -4,7 +4,7 @@ from linked_queue_manager import linked_queue_manager
 
 
 class queue_manager_factory:
-    def make(self, tipo) -> abstract_queue_manager:
+    def make(self, tipo):
         implementacoes = {
             "sequential": sequential_queue_manager,
             "linked": linked_queue_manager

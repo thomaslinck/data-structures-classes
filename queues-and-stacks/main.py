@@ -1,6 +1,6 @@
-from queue_manager.queue_manager_factory import queue_manager_factory
-from airport.airplane import *
-from airport.airport import *
+from queue_manager_factory import queue_manager_factory
+from airplane import *
+from airport import *
 
 
 def execute_program():
@@ -25,8 +25,8 @@ def execute_program():
         print("Não foi possível criar")
         return
 
-    queue_manager.add_element_to_queue(Airplane("ABC", "Teste1", "TAM"))
-    queue_manager.add_element_to_queue(Airplane("DEF", "Teste2", "GOL"))
+    queue_manager.add_element(Airplane("ABC", "Teste1", "TAM"))
+    queue_manager.add_element(Airplane("DEF", "Teste2", "GOL"))
 
     while True:
         print("\nDigite o número da operação desejada:")
