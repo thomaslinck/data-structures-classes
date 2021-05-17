@@ -4,7 +4,7 @@ from tabulate import tabulate
 from functions_dictionary import functions
 
 
-def see_differences(function, initial_list, expected_list, list_size):
+def see_differences(function, initial_list, expected_list):
     actual_list = function(initial_list.copy())
     print(f"\nExpected:\n{expected_list}")
     print(f"Actual:\n{actual_list}")
@@ -12,7 +12,7 @@ def see_differences(function, initial_list, expected_list, list_size):
     print("\nWrong Elements:")
     wrong_elements = [["Index", "Expected", "Actual"]]
 
-    for index in range(list_size-1):
+    for index in range(len(initial_list)-1):
         if expected_list[index] != actual_list[index]:
             wrong_elements.append(
                 [index, expected_list[index], actual_list[index]])
@@ -31,11 +31,11 @@ def test_suite():
     sorted_list = sorted(random_list)
 
     for function in functions:
-        if sort_by_function(function, random_list.copy(), list_size) == sorted_list:
+        if sort_by_function(function, random_list.copy()) == sorted_list:
             print(f"{functions.get(function)}: OK")
         else:
             print(f"{functions.get(function)}: Erro")
             see_differences(function, random_list.copy(),
-                            sorted_list.copy(), list_size)
+                            sorted_list.copy())
 
     print("-----------------------------------------------------------------------")
