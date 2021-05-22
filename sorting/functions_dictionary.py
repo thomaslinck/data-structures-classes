@@ -1,16 +1,8 @@
+from sorting_functions.sort_method import sort_method
+from sorting_functions.sorted_function import sorted_function
 from sorting_functions.bubble_sort import bubble_sort
 from sorting_functions.selection_sort import selection_sort
 from sorting_functions.insertion_sort import insertion_sort
-
-
-def sort_method(my_list):
-    my_list.sort()
-    return my_list
-
-
-def sorted_function(my_list):
-    return sorted(my_list)
-
 
 functions = {
     bubble_sort: "Bubble Sort",
