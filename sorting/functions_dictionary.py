@@ -1,6 +1,6 @@
-from bubble_sort import bubble_sort
-from selection_sort import selection_sort
-from insertion_sort import insertion_sort
+from sorting_functions.bubble_sort import bubble_sort
+from sorting_functions.selection_sort import selection_sort
+from sorting_functions.insertion_sort import insertion_sort
 
 
 def sort_method(my_list):
