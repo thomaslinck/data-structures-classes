@@ -1,3 +1,3 @@
 
-def sorted_function(my_list):
-    return sorted(my_list)
+def sorted_function(sorting_list):
+    return sorted(sorting_list)

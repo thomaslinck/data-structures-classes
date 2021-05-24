@@ -1,4 +1,4 @@
 
-def sort_method(my_list):
-    my_list.sort()
-    return my_list
+def sort_method(sorting_list):
+    sorting_list.sort()
+    return sorting_list
