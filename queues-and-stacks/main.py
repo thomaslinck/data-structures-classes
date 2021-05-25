@@ -1,4 +1,4 @@
-from queue_manager_factory import queue_manager_factory
+import queue_manager_factory.queue_manager_factory
 from airplane import *
 from airport import *
 
