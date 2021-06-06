@@ -7,26 +7,27 @@ class ListInformation():
         self.list_to_search = list_to_search
 
         self.first_index = first_index
+        self.first_element = list_to_search[first_index]
         self.last_index = last_index
+        self.last_element = list_to_search[last_index]
 
         self.__update_center()
 
         self.is_found = False
         self.found_element_index = - 1
 
-    def copy(self):
-        return ListInformation(self.list_to_search, self.first_index, self.last_index)
-
-    def update_first_index(self):
+    def update_first(self):
         self.first_index = self.center_index + 1
+        self.first_element = self.list_to_search[self.first_index]
         self.__update_center()
 
-    def update_last_index(self):
+    def update_last(self):
         self.last_index = self.center_index - 1
+        self.last_element = self.list_to_search[self.last_index]
         self.__update_center()
 
-    def found(self):
-        self.found_element_index = self.center_index
+    def found(self, index):
+        self.found_element_index = index
         self.is_found = True
         return self
 
@@ -42,33 +43,32 @@ def create_random_list(list_size):
 def find_element_in_list(element_to_find, list_information):
 
     if element_to_find == list_information.element_in_center:
-        return list_information.found()
+        return list_information.found(list_information.center_index)
+
+    elif element_to_find == list_information.first_element:
+        return list_information.found(list_information.first_index)
+
+    elif element_to_find == list_information.first_element:
+        return list_information.found(list_information.last_index)
 
     else:
-        new_list_information = list_information.copy()
-
         if element_to_find < list_information.element_in_center:
-            new_list_information.update_last_index()
+            list_information.update_last()
 
         else:
-            new_list_information.update_first_index()
+            list_information.update_first()
 
-        return find_element_in_list(element_to_find, new_list_information)
+        return find_element_in_list(element_to_find, list_information)
 
 
 def search_for_element_in_list(element, list_to_search):
-    list_information = find_element_in_list(
-        element, ListInformation(list_to_search, 0, len(list_to_search)-1))
-
-    if list_information.is_found == True:
-        return list_information.found_element_index
-    else:
-        print("Not found")
+    return find_element_in_list(
+        element, ListInformation(list_to_search, 0, len(list_to_search)-1)).found_element_index
 
 
 def main():
 
-    list_to_search = sorted(create_random_list(10))
+    list_to_search = sorted(create_random_list(100))
     index_to_search = random.randint(0, len(list_to_search) - 1)
     element_to_search = list_to_search[index_to_search]
 

@@ -1,8 +1,10 @@
-
+import sys
 import time
 from tabulate import tabulate
 
-from dependencies import *
+from dependencies import create_random_list
+from dependencies import sort_by_function
+from dependencies import functions
 
 
 def see_differences(function, initial_list, expected_list):
@@ -26,7 +28,7 @@ def test_suite():
     print("-----------------------------------------------------------------------")
     print("Status dos algoritmos:\n")
 
-    list_size = 50
+    list_size = 3
 
     random_list = create_random_list(list_size)
     sorted_list = sorted(random_list)
@@ -53,7 +55,7 @@ def create_time_per_function_table():
     times_table = [["List Size"]]
     times_table[0].extend(list(functions.values()))
 
-    for list_size in range(1, 1000, 100):
+    for list_size in range(1, 3, 1):
         table_row = [list_size]
         original_list = create_random_list(list_size)
         for f in functions:
@@ -66,5 +68,6 @@ def create_time_per_function_table():
                    tablefmt="github", floatfmt=".10f"))
 
 
+sys.setrecursionlimit(2000)
 test_suite()
 create_time_per_function_table()
