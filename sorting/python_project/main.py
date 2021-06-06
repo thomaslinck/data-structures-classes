@@ -2,7 +2,9 @@
 import time
 from tabulate import tabulate
 
-from dependencies import *
+from dependencies import create_random_list
+from dependencies import sort_by_function
+from dependencies import functions
 
 
 def see_differences(function, initial_list, expected_list):
